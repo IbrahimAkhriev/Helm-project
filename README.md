@@ -1,32 +1,41 @@
-# Name of the project
-
+# Advanced Kubernetes
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Introduction](#introduction)
+1. [Chapter I](#chapter-i) 
 2. [Chapter II](#chapter-ii) \
-    2.1. [Information](#information)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Part 1](#part-1) \
-    3.2. [Part 2](#part-2) \
-    3.3. [Part 3](#part-n) 
-
+   2.1. [Deploying your own k3s cluster](#part-1-deploying-your-own-k3s-cluster) \
 
 ## Chapter I
 
-### Introduction
-
+There are many other orchestration tools besides docker swarm. One of the most popular solutions is the Kubernetes tool developed by Google. The main difference of kubernetes is the higher complexity and scale of the solution. Kubernetes is mostly for more serious applications, with a large number of services and complex interactions. Kubernetes also has a number of additional built-in tools, such as an internal monitoring system.
 
 ## Chapter II
 
-### Information
+The result of the work must be a report with detailed descriptions of the implementation of each of the points with screenshots. The report is prepared as a markdown file in the `src` directory named `REPORT.MD`.
 
+## Part 1. Deploying your own k3s cluster
 
-## Chapter III
+**== Task ==**
 
-### Part 1
+1) Get a set of virtual machines for the cluster
 
-### Part 2
+2) Get a domain name and a wildcard certificate for it
 
-### Part N
+3) Install k3s on all three machines. When installing, do not use the standard Ingress Controller by using the flag `--no-deploy traefik`.
+
+4) Connect the nodes to the cluster using the `k3s server` command and the `-token` and `--server` flags for worker and master nodes respectively. When k3s is installed, the environment variable `NODE_TOKEN` can be used.
+
+5) Install the Ingress Controller Nginx instead of the default one. You can use the official nginx-based ingress controller manifest file available on GitHub.
+
+6) Configure the cluster with the obtained certificate using the `cert-manager` utility.
+
+7) Create an Ingress resource for your personal domain and configure it to use the nginx ingress controller and the obtained certificate
+
+8) Create a PV (Persistent Volume) for the PostgreSQL database in the manifest from the fourth project.
+
+9) Run the application described in the manifest.
+
+10) Run postman functional tests and make sure that the application works.
+
+11) Install and run Prometheus Operator to collect metrics in the system. Add the result of the `kubectl get pods -n monitoring`command in the report
