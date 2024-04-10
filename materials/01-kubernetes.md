@@ -6,7 +6,7 @@ When setting up a Kubernetes environment, there are two options: Vanilla Kuberne
 
 Some Kubernetes distributions are specifically designed to use fewer resources, such as **Minikube** and **k3s**.
 
-Two factors - low resource requirements and ease of use - make lightweighted Kubernetes distributions a great choice for people who are unfamiliar with Kubernetes and want to set up an environment on their own computer where they can experiment with node management, module deployment, and 
+Two factors - low resource requirements and ease of use - make lightweighted Kubernetes distributions a great choice for people who are unfamiliar with Kubernetes and want to set up an environment on their own computer where they can experiment. 
 
 ### Minikube
 
