@@ -22,7 +22,7 @@ The result of the work must be a report with detailed descriptions of the implem
 
 2) Get a domain name and a wildcard certificate for it
 
-3) Install k3s on all three machines. When installing, do not use the standard Ingress Controller by using the flag `--no-deploy traefik`.
+3) Install k3s on all three machines. When installing, do not use the standard Ingress Controller by using the flag `--disable=traefik`.
 
 4) Connect the nodes to the cluster using the `k3s server` command and the `-token` and `--server` flags for worker and master nodes respectively. When k3s is installed, the environment variable `NODE_TOKEN` can be used.
 
