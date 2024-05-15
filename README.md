@@ -20,22 +20,20 @@ The result of the work must be a report with detailed descriptions of the implem
 
 1) Get a set of virtual machines for the cluster
 
-2) Get a domain name and a wildcard certificate for it
+2) Install k3s on all three machines. When installing, do not use the standard Ingress Controller by using the flag `--disable=traefik`.
 
-3) Install k3s on all three machines. When installing, do not use the standard Ingress Controller by using the flag `--disable=traefik`.
+3) Connect the nodes to the cluster using the `k3s server` command and the `-token` and `--server` flags for worker and master nodes respectively. When k3s is installed, the environment variable `NODE_TOKEN` can be used.
 
-4) Connect the nodes to the cluster using the `k3s server` command and the `-token` and `--server` flags for worker and master nodes respectively. When k3s is installed, the environment variable `NODE_TOKEN` can be used.
+4) Install the Ingress Controller Nginx instead of the default one. You can use the official nginx-based ingress controller manifest file available on GitHub.
 
-5) Install the Ingress Controller Nginx instead of the default one. You can use the official nginx-based ingress controller manifest file available on GitHub.
+5) Get a domain name and configure the `cert-manager` utility inside the cluster, which should generate a wildcard certificate for the obtained domain
 
-6) Configure the cluster with the obtained certificate using the `cert-manager` utility.
+6) Create an Ingress resource for your personal domain and configure it to use the nginx ingress controller and the obtained certificate
 
-7) Create an Ingress resource for your personal domain and configure it to use the nginx ingress controller and the obtained certificate
+7) Create a PV (Persistent Volume) for the PostgreSQL database in the manifest from the fourth project.
 
-8) Create a PV (Persistent Volume) for the PostgreSQL database in the manifest from the fourth project.
+8) Run the application described in the manifest.
 
-9) Run the application described in the manifest.
+9) Run postman functional tests and make sure that the application works.
 
-10) Run postman functional tests and make sure that the application works.
-
-11) Install and run Prometheus Operator to collect metrics in the system. Add the result of the `kubectl get pods -n monitoring`command in the report
+10) Install and run Prometheus Operator to collect metrics in the system. Add the result of the `kubectl get pods -n monitoring`command in the report
