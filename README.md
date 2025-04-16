@@ -32,7 +32,7 @@ The result of the work must be a report with detailed descriptions of the implem
 
 6) Create an Ingress resource for your personal domain and configure it to use the nginx ingress controller and the obtained certificate
 
-7) Create a PV (Persistent Volume) for the PostgreSQL database in the manifest from the fourth project.
+7) Create a PV (Persistent Volume) for the PostgreSQL database in the manifest from the tenth project.
 
 8) Run the application described in the manifest.
 
